@@ -3,7 +3,8 @@ class RingBuffer:
         self.capacity = capacity
 
     def append(self, item):
-        pass
+        self.item = item
+        
 
     def get(self):
         pass

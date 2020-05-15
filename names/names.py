@@ -13,10 +13,29 @@ f.close()
 duplicates = []  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     for name_2 in names_2:
+#         if name_1 == name_2:
+#             duplicates.append(name_1)
+# runtime before = 26.53
+# Polynomial O(n^c)
+
+# define a dictionary 
+names_2_dict = {}
+
+# Confirm names are in the list
+for name in names_2:
+    names_2_dict[name] = True
+
+# Confirm name is in the list
+# and if it is in the name 2 dict
+# if so, append
+for name in names_1:
+    if name in names_2_dict:
+        duplicates.append(name)
+
+# runtime after = 0.018
+# Linear O(n)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
