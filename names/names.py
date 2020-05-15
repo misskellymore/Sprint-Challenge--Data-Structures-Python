@@ -35,6 +35,7 @@ for name in names_2:
         duplicates.append(name)
 
 
+# stretch solution
 # # define a dictionary 
 # names_2_dict = {}
 
