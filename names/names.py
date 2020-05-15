@@ -1,5 +1,5 @@
 import time
-
+from binary_search_tree import BinarySearchTree
 start_time = time.time()
 
 f = open('names_1.txt', 'r')
@@ -20,22 +20,37 @@ duplicates = []  # Return the list of duplicates in this data structure
 # runtime before = 26.53
 # Polynomial O(n^c)
 
-# define a dictionary 
-names_2_dict = {}
 
-# Confirm names are in the list
-for name in names_2:
-    names_2_dict[name] = True
 
-# Confirm name is in the list
-# and if it is in the name 2 dict
-# if so, append
+# runtime after = .39
+# log(n)
+
+bst = BinarySearchTree('names')
+
 for name in names_1:
-    if name in names_2_dict:
+    bst.insert(name)
+
+for name in names_2:
+    if bst.contains(name):
         duplicates.append(name)
 
-# runtime after = 0.018
-# Linear O(n)
+
+# # define a dictionary 
+# names_2_dict = {}
+
+# # Confirm names are in the list
+# for name in names_2:
+#     names_2_dict[name] = True
+
+# # Confirm name is in the list
+# # and if it is in the name 2 dict
+# # if so, append
+# for name in names_1:
+#     if name in names_2_dict:
+#         duplicates.append(name)
+
+# # runtime after = 0.018
+# # Linear O(n)
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
