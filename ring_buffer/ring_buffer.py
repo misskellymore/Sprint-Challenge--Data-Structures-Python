@@ -6,9 +6,19 @@ class RingBuffer:
         self.ring = []
 
 
+    # When the ring buffer is full and a 
+    # new element is inserted, the oldest 
+    # element in the ring buffer is overwritten 
+    # with the newest element
+
+    # When the ring buffer is full and a new 
+    # element is inserted, the oldest element in 
+    # the ring buffer is overwritten with the newest 
+    # element
 
     def append(self, item):
-        # first item becomes oldest
+        # if there's no oldest item
+        # set to zero and append
         if self.oldest_node is None:
             self.oldest_node = 0
             return self.ring.append(item)
